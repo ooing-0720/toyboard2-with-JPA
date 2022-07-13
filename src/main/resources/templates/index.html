@@ -21,7 +21,7 @@
         </thead>
         <tr th:each="post:${posts}">
             <td th:text="${post.id}"></td>
-            <td th:text="${post.title}" th:href="/posts/update/${post.id}"></td>
+            <td th:text="${post.title}" th:onclick="'location.href=\'' + @{|/posts/update/${post.id}|} + '\''" style="cursor:pointer;text-decoration: underline"></td>
             <td th:text="${post.author}"></td>
             <td th:text="${post.modifiedDate}"></td>
         </tr>

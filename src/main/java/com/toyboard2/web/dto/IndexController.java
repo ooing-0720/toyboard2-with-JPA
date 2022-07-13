@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
@@ -50,6 +51,16 @@ public class IndexController {
         model.addAttribute("msg", "수정이 완료되었습니다.");
         model.addAttribute("url", "/");
         return "/message/alert";
+    }
+
+    @RequestMapping("/posts/delete/{id}")
+    public String postsDelete(@PathVariable Long id, Model model) {
+        postsService.delete(id);
+
+        model.addAttribute("msg", "삭제되었습니다.");
+        model.addAttribute("url", "/");
+        return "/message/alert";
+
     }
 }
 
